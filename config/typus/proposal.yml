@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Proposal:
+  fields:
+    default: title, description, image_url, category
+    form: title, description, image_url, category
+  relationships: category
+  application: Application
