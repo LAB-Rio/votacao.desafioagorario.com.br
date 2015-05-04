@@ -1,15 +1,18 @@
-<%= content_for :title, "Ideias" %>
+<%= content_for :title, "Propostas em votação" %>
 
-<div class="row proposals">
-
+<div class="row proposals" data-equalizer>
+  <h2 class="francois text-uppercase text-center">Propostas em votação</h2>
   <% @proposals.each do |proposal| %> 
 
-    <div class="medium-3 columns end">
+    <div class="medium-4 columns end" data-equalizer-watch>
       <div class="proposal">
-        <div class="image"><%= image_tag proposal.image_url %></div>
-        <h5><%= proposal.title %></h5>
+        <div class="image"><%= image_tag proposal.image %></div>
+        <h5 class="francois"><%= proposal.title %></h5>
         <p><%= truncate(proposal.description, length: 160) %></p>
-        <%= link_to "Ver mais", proposal_path(proposal) %>
+        <div class="actions">
+          <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
+          <%= link_to "Selecionar proposta", proposal_path(proposal), class: 'select-proposal' %>
+        </div>
       </div>
     </div>
 
