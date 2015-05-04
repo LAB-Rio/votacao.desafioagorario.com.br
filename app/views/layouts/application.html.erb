@@ -12,7 +12,17 @@
   </head>
 
   <body>
+    <div id="header">
+      <div class="row">
+        <div class="medium-8 columns">
+          <%= link_to image_tag("http://placehold.it/100x70"), root_path %>
+        </div>
 
+        <div class="medium-4 columns end">
+          <%= link_to 'Entrar', new_user_session_path %> 
+        </div>
+      </div>
+    </div>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
