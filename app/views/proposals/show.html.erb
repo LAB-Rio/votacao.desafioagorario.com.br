@@ -1,2 +1,7 @@
-<h1>Proposals#show</h1>
-<p>Find me in app/views/proposals/show.html.erb</p>
+<div class="row">
+  <div class="medium-8 medium-centered columns">
+    <%= image_tag @proposal.image_url %>
+    <h3><%= @proposal.title %></h3>
+    <p> <%= @proposal.description %></p>
+  </div>
+</div>
