@@ -15,7 +15,7 @@
             <%= image_tag proposal.image %>
             <h5 class="francois"><%= proposal.title %></h5>
           </div>
-          <p><%= truncate(proposal.description, length: 160) %></p>
+          <p><%= truncate(proposal.description, length: 200) %></p>
           <div class="actions">
             <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
             <%= link_to "Selecionar proposta", proposal_path(proposal), class: 'select-proposal' %>
