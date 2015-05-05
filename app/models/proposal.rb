@@ -8,10 +8,10 @@ class Proposal < ActiveRecord::Base
 
 
   def next
-    where('id > ?', id).first || Proposal.first
+    Proposal.where('id > ?', id).first || Proposal.first
   end
 
-  def last
-    where('id < ?', id).last || Proposal.first
+  def prev 
+    Proposal.where('id < ?', id).last || Proposal.first
   end
 end
