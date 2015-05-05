@@ -3,8 +3,8 @@
     <%= link_to "Voltar", proposals_path %>
   </div>
   <div class="medium-8 medium-centered columns">
-    <%= image_tag @proposal.image_url %>
-    <h3><%= @proposal.title %></h3>
-    <p> <%= @proposal.description %></p>
+    <%= image_tag @proposal.image %>
+    <h3 class="francois text-uppercase"><%= @proposal.title %></h3>
+    <p> <%= @proposal.large_description %></p>
   </div>
 </div>
