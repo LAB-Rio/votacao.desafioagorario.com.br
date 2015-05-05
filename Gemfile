@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.2.0'
 
 
@@ -9,6 +10,7 @@ gem 'pg'
 gem "typus", github: "typus/typus"
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'rails-assets-store'
 
 gem 'puma'
 gem 'foundation-rails'

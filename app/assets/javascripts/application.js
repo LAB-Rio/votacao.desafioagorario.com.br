@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require store
 //= require_tree .
 
 $(document).ready(function(){
