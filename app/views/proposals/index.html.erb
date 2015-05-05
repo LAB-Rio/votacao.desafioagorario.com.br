@@ -9,8 +9,8 @@
 <% @proposals.in_groups_of(3, false) do |group| %> 
   <div class="row proposals" data-equalizer>
     <% group.each do |proposal| %>
-      <div class="medium-4 columns proposal-wrapper end">
-        <div class="proposal" data-equalizer-watch>
+      <div class="medium-4 columns proposal-wrapper end" data-equalizer-watch>
+        <div class="proposal">
           <div class="image">
             <%= image_tag proposal.image %>
             <h5 class="francois"><%= proposal.title %></h5>

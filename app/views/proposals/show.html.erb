@@ -1,10 +1,12 @@
+
+<div class="full-image" style="background: url('<%= @proposal.image %>') no-repeat; background-size: cover">
+  <h3 class="francois text-uppercase"><%= @proposal.title %></h3>
+</div>
+
 <div class="row">
-  <div class="medium-8 medium-centered columns">
-    <%= link_to "Voltar", proposals_path %>
+
   </div>
   <div class="medium-8 medium-centered columns">
-    <%= image_tag @proposal.image %>
-    <h3 class="francois text-uppercase"><%= @proposal.title %></h3>
     <p> <%= simple_format(@proposal.large_description) %></p>
   </div>
 </div>
