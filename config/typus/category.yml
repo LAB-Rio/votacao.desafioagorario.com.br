@@ -5,4 +5,4 @@ Category:
     default: name, sequence
     form: name, sequence
   relationships: 
-  application: Application
+  application: Votação 

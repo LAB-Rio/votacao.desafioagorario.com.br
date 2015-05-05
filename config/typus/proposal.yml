@@ -5,4 +5,4 @@ Proposal:
     default: title, description, large_description, image_url, category
     form: title, description, large_description, image_url, category
   relationships: category
-  application: Application
+  application: Votação 
