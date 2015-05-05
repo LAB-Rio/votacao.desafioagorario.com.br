@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <% if !current_page?(root_path) %>
     <div id="header">
       <div class="row">
         <div class="medium-8 columns logo">
@@ -23,6 +24,21 @@
         </div>
       </div>
     </div>
+    <% else %>
+
+    <div id="presentation">
+      <div class="row">
+        <div class="medium-12 text-center columns">
+          <%= link_to image_tag("logo.png"), root_path %>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <%= link_to 'Ver propostas', proposals_path, class: :button %>
+        </div>
+      </div>  
+    </div>
+    <% end %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
