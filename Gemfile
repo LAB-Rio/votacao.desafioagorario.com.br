@@ -10,7 +10,7 @@ gem 'pg'
 gem "typus", github: "typus/typus"
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'rails-assets-store'
+gem 'pundit'
 
 gem 'puma'
 gem 'foundation-rails'
