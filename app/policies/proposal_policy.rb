@@ -1,4 +1,4 @@
-class ProposalPolicy < ApplicationPolicy
+class ProposalPolicy
 
 
   def vote?
