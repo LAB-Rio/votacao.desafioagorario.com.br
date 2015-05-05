@@ -2,7 +2,7 @@
 
 Proposal:
   fields:
-    default: title, description, image_url, category
-    form: title, description, image_url, category
+    default: title, description, large_description, image_url, category
+    form: title, description, large_description, image_url, category
   relationships: category
   application: Application

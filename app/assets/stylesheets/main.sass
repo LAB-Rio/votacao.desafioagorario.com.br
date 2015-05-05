@@ -1,4 +1,6 @@
 //FontDef.
+body
+  font-family: 'Helvetica', Arial, sans-serif
 
 .francois 
   font-family: 'Francois One'
@@ -27,25 +29,33 @@
   position: relative
   top: .6em
 
-
 .proposals
-  .end
-    margin-top: 1em
-    margin-bottom: 1em
-
+  margin: 2.5em auto
+.proposal-wrapper
+  margin-bottom: 1em
 .proposal
   padding: 1.4em .8em
   background: #f9f9f9
   h5
     text-transform: uppercase
-    font-size: 1.1em !important
+    font-size: 1.3em !important
+    position: absolute
+    color: white
+    top: 10%
+    width: 70%
+    margin: auto 5%
+    text-shadow: 0 1px 1px #333
+    letter-spacing: 1px
   p
     font-size: .9em
     text-align: justify
+    padding: 1.4em 0
 
 .actions
   display: block
   text-align: right
+  position: absolute
+  bottom: 4%
 
 .see-more, .select-proposal
   background: #00AC6A

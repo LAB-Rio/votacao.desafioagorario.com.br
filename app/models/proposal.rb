@@ -3,6 +3,6 @@ class Proposal < ActiveRecord::Base
 
 
   def image
-    !image_url.empty? ? image_url : 'http://placehold.it/300x200'
+    !image_url.empty? ? image_url : 'http://i.imgur.com/WzBlGku.png'
   end
 end

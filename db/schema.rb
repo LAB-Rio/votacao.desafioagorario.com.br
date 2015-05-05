@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427152857) do
+ActiveRecord::Schema.define(version: 20150505193818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,13 @@ ActiveRecord::Schema.define(version: 20150427152857) do
   end
 
   create_table "proposals", force: :cascade do |t|
-    t.string   "title",       default: "", null: false
-    t.text     "description", default: "", null: false
-    t.string   "image_url",   default: "", null: false
+    t.string   "title",             default: "", null: false
+    t.text     "description",       default: "", null: false
+    t.string   "image_url",         default: "", null: false
     t.integer  "category_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.text     "large_description", default: "", null: false
   end
 
   add_index "proposals", ["category_id"], name: "index_proposals_on_category_id", using: :btree
