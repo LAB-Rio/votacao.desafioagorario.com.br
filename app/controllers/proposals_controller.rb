@@ -2,7 +2,7 @@ class ProposalsController < ApplicationController
   respond_to :html
 
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.order('RANDOM()').all
   end
 
   def show
