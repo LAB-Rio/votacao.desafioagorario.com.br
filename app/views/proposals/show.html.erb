@@ -10,7 +10,7 @@
     <p> <%= simple_format(@proposal.large_description) %></p>
     <div class="row">
         <div class="medium-6 medium-centered text-center columns">
-          <%= link_to "Selecionar esta proposta", '', class: :button %> 
+          <%= link_to "Selecionar este projeto", '', class: :button %> 
           <br/><br/>
         </div>
 
@@ -18,13 +18,30 @@
     </div>
     <div class="row">
 
-      <div class="medium-4 small-4 text-center columns"><%= link_to 'Proposta anterior', proposal_path(@proposal.prev) %></div>
-      <div class="medium-4 small-4 text-center columns"><%= link_to 'Ver todas as propostas', proposals_path %></div>
-      <div class="medium-4 small-4 text-center columns"><%= link_to 'Próxima proposta', proposal_path(@proposal.next) %></div>
+      <div class="medium-4 small-4 text-center columns"><%= link_to 'Projeto anterior', proposal_path(@proposal.prev) %></div>
+      <div class="medium-4 small-4 text-center columns"><%= link_to 'Ver todos os projetos', proposals_path %></div>
+      <div class="medium-4 small-4 text-center columns"><%= link_to 'Próximo projeto', proposal_path(@proposal.next) %></div>
     </div>
   </div>
 
 </div>
 
 
+<br/><br/><br/>
+<br/><br/><br/>
 
+
+<div class="fixed-save">
+  <div class="row">
+    <div class="medium-4 small-4 columns">
+      &nbsp;
+      <!--<a href="/save" data-method="post" class="button" disabled>Concluir</a>-->
+    </div>
+    <div class="medium-4 small-4 columns counter text-center">
+      <span class="selected-count">0</span>  de <span> 10</span>
+    </div>
+    <div class="medium-4 small-4 columns text-right">
+      <a href="/save" data-method="post" class="button">Finalizar e salvar votos</a>
+    </div>
+  </div>
+</div>

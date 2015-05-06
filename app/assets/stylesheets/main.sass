@@ -46,6 +46,9 @@ body
 
 .proposals
   margin: 2.5em auto
+  &:last-child
+    margin-bottom: 6em
+
 .proposal-wrapper
   margin-bottom: 1em
 .proposal
@@ -101,10 +104,27 @@ body
     width: 60%
     margin: 0 auto
     text-align: center
-    padding: .8em 0
+    padding: 1.4em 0
     text-shadow: 0 1px 1px #333
     font-size: 220%
 
 .proposal-text p
   font-size: 1.2em
   font-family: 'Georgia'
+
+
+.fixed-save
+  width: 100%
+  background: rgba(230,230,230, 0.7)
+  height: 60px
+  position: fixed
+  bottom: 0
+  .counter
+    margin-top: 1.2em
+  .button
+    background: #004786
+    color: white
+    padding: .6em .8em
+    width: 100%
+    display: inline-block
+    margin-top: .6em

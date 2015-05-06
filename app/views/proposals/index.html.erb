@@ -3,7 +3,7 @@
 <div class="row" data-equalizer>
   <div class="medium-12 columns">
     <br/>
-    <h2 class="francois text-uppercase text-center">Propostas em votação</h2>
+    <h2 class="francois text-uppercase text-center">Projetos em votação</h2>
   </div>
 </div>
 
@@ -19,11 +19,28 @@
           <p><%= truncate(proposal.description, length: 200) %></p>
           <div class="actions">
             <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
-            <%= link_to "Selecionar proposta", proposal_path(proposal), class: 'select-proposal' %>
+            <%= link_to "Selecionar", proposal_path(proposal), class: 'select-proposal' %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 <% end %> 
+<br/><br/><br/>
+<br/><br/><br/>
 
+
+<div class="fixed-save">
+  <div class="row">
+    <div class="medium-4 small-4 columns">
+      &nbsp;
+      <!--<a href="/save" data-method="post" class="button" disabled>Concluir</a>-->
+    </div>
+    <div class="medium-4 small-4 columns counter text-center">
+      <span class="selected-count">0</span>  de <span> 10</span>
+    </div>
+    <div class="medium-4 small-4 columns text-right">
+      <a href="/save" data-method="post" class="button">Finalizar e salvar votos</a>
+    </div>
+  </div>
+</div>
