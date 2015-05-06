@@ -19,7 +19,7 @@
           <p><%= proposal.description %></p>
           <div class="actions">
             <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
-            <%= link_to "Selecionar", proposal_path(proposal), class: 'select-proposal' %>
+            <%= link_to "Selecionar", proposal_path(proposal), class: 'select-proposal', data: { id: proposal.id } %>
           </div>
         </div>
       </div>

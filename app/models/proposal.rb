@@ -14,4 +14,9 @@ class Proposal < ActiveRecord::Base
   def prev 
     Proposal.where('id < ?', id).last || Proposal.first
   end
+
+
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
 end
