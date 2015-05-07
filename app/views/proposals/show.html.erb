@@ -10,7 +10,7 @@
     <p> <%= simple_format(@proposal.large_description) %></p>
     <div class="row">
         <div class="medium-6 medium-centered text-center columns">
-          <%= link_to "Selecionar este projeto", '', class: :button %> 
+          <%= link_to "Selecionar este projeto", '', class: 'select-proposal', data: { id: @proposal.id } %> 
           <br/><br/>
         </div>
 

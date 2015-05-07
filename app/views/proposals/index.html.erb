@@ -11,7 +11,7 @@
   <div class="row proposals" data-equalizer>
     <% group.each do |proposal| %>
       <div class="medium-4 columns proposal-wrapper end" data-equalizer-watch>
-        <div class="proposal">
+        <div class="proposal" data-id="<%= proposal.id %>">
           <div class="image">
             <%= image_tag proposal.image %>
             <h5 class="francois"><%= proposal.title %></h5>
