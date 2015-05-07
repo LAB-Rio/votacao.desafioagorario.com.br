@@ -45,7 +45,7 @@
       <span class="selected-count">0</span>  de <span> 10</span>
     </div>
     <div class="medium-4 small-4 columns text-right">
-      <%= form_for :proposals_users, html: { id: 'proposalForm' }, url: '/proposals/save', method: :post do |f| %>
+      <%= form_for :proposals_users, html: { id: 'proposalForm' }, url: save_path, method: :post do |f| %>
         <span class="inputs"></span> 
         <%= f.button 'Finalizar e salvar votos', class: [:button, :submit] %>
       <% end %>

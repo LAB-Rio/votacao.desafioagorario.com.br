@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    request.env['omniauth.origin'] || request.referrer || save_path 
+    save_path(proposals: { user_proposals: session[:proposal_ids] })
   end
 
 

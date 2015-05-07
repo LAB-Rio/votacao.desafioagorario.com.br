@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   resources :proposals, only: [:index, :show]
 
-  post 'proposals/save' => 'proposals#save', as: :save
+  match 'voting/save' => 'proposals#save', as: :save, via: [:get, :post]
   post 'proposals/existing' => 'proposals#existing', as: :save_existing
   
   get '/about' => 'pages#about', as: :about

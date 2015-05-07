@@ -11,8 +11,7 @@ class ProposalsController < ApplicationController
 
 
   def save 
-    authenticate_user!
-
+    
     if params[:existing]
       current_user.proposals = []
       current_proposals = session[:proposal_ids]
@@ -20,7 +19,10 @@ class ProposalsController < ApplicationController
       current_proposals = proposals_params[:user_proposals] 
     end
 
-    session[:proposal_ids] = current_proposals 
+    session[:proposal_ids] = current_proposals
+
+    authenticate_user!
+
 
     @proposals = current_user.proposals
     @new_proposals = find_proposals(current_proposals)
@@ -35,11 +37,11 @@ class ProposalsController < ApplicationController
       end
       current_user.proposals << proposal
     end
-    
+   
     render :success
   end
 
-  def already_saved;end
+  def already_saved; end
 
   def success;end
 
