@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   resources :proposals, only: [:index, :show]
+  get '/about' => 'pages#about', as: :about
   root 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

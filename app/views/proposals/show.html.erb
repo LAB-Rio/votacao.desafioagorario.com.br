@@ -16,11 +16,28 @@
 
         
     </div>
-    <div class="row">
+    <div class="row nav-actions">
 
-      <div class="medium-4 small-4 text-center columns"><%= link_to 'Projeto anterior', proposal_path(@proposal.prev) %></div>
-      <div class="medium-4 small-4 text-center columns"><%= link_to 'Ver todos os projetos', proposals_path %></div>
-      <div class="medium-4 small-4 text-center columns"><%= link_to 'Próximo projeto', proposal_path(@proposal.next) %></div>
+      <div class="medium-4 small-4 text-center columns">
+        <%= link_to proposal_path(@proposal.prev) do %>
+          <%= image_tag 'previous.png' %>
+          <span>Projeto anterior</span>
+        <% end %>
+      </div>
+
+      <div class="medium-4 small-4 text-center columns">
+        <%= link_to proposals_path do %>
+          <%= image_tag 'home.png' %>
+          <span>Ver todos os projetos</span>
+        <% end %>
+      </div>
+
+      <div class="medium-4 small-4 text-center columns">
+        <%= link_to proposal_path(@proposal.next) do %>
+          <%= image_tag 'next.png' %>
+          <span>Próximo projeto</span>
+        <% end %>
+      </div>
     </div>
   </div>
 
