@@ -1,29 +1,50 @@
-<h2>Sign up</h2>
+<div class="row">
+  <br/>
+  <h2 class="text-center francois">Cadastro</h2>
+  <div class="medium-5 medium-centered login-block columns">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+        <%= link_to omniauth_authorize_path(resource_name, :facebook), class: :facebook do %>
+          <%= image_tag 'facebook.jpg',size: '50x50' %>
+          Cadastre usando o Facebook 
+        <% end %>
+
+        <%= f.label :first_name, 'Nome' %>
+        <%= f.text_field :first_name, autofocus: true %>
+
+        <%= f.label :last_name, 'Sobrenome' %>
+        <%= f.text_field :last_name %>
+
+
+
+
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+
+        <%= f.label :password, 'Senha' %>
+        <% if @validatable %>
+          <small>(mínimo de <%= @minimum_password_length %> caracteres)</small>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off" %>
+
+        <%= f.label :password_confirmation, 'Confirme sua senha' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+        <%= f.submit "Cadastrar", class: [:button, :login] %>
+    <% end %>
+    <%= render "devise/shared/links" %>
+
+
+
+
+
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+</div>  
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+    <br/><br/>
+    <br/><br/>

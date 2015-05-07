@@ -11,6 +11,7 @@
       <% end -%>
     <% end -%>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <% if alert or notice %><span class="error"><%= alert || notice %></span><% end %>
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
 

@@ -58,7 +58,10 @@
       <span class="selected-count">0</span>  de <span> 10</span>
     </div>
     <div class="medium-4 small-4 columns text-right">
-      <a href="/save" data-method="post" class="button">Finalizar e salvar votos</a>
+      <%= form_for :proposals_users, html: { id: 'proposalForm' }, url: '/proposals/save', method: :post do |f| %>
+        
+        <%= f.button 'Finalizar e salvar votos', class: :button %>
+      <% end %>
     </div>
   </div>
 </div>

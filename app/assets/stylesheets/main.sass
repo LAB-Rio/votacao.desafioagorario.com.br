@@ -10,6 +10,10 @@ body
 .select-proposal:visited
   color: white
 
+.button:hover, .select-proposal:hover, .see-more:hover
+  background: white !important
+  color: #004786 !important
+
 #presentation
   background: image-url('bg.png') 
   padding-top: 15%
@@ -141,6 +145,8 @@ body
     background: #004786
     color: white
     padding: .6em .8em
+    font-family: 'Francois One'
+    text-transform: uppercase
     width: 80%
     display: inline-block
     margin-top: .6em
@@ -158,6 +164,8 @@ body
     display: block
     font-size: 1.2em
     margin: .8em 0 1.5em 0
+    &:hover
+      opacity: .8
   label
     font-family: 'Francois One'
     text-transform: uppercase
@@ -178,3 +186,7 @@ body
     display: block
     font-size: .8em
     color: #666
+
+
+#error_explanation
+  font-size: 90% 
