@@ -3,7 +3,7 @@
 <div class="row" data-equalizer>
   <div class="medium-12 columns">
     <br/>
-    <h2 class="francois text-uppercase text-center">Projetos em votação</h2>
+    <h2 class="francois text-uppercase main-title text-center">Projetos em votação</h2>
     <p class="text-center">Vote nas 10 propostas de mobilidade que você quer ver na cidade!</p>
   </div>
 </div>
@@ -12,12 +12,16 @@
   <div class="row proposals" data-equalizer>
     <% group.each do |proposal| %>
       <div class="medium-4 columns proposal-wrapper end" data-equalizer-watch>
+
         <div class="proposal" data-id="<%= proposal.id %>">
+          <div class="deselect">
+            <a class="select-proposal-undo" data-id="<%= proposal.id %>"><%= image_tag 'undo.png', size: '20x20'%> Desfazer seleção</a>
+          </div>
           <div class="image">
             <%= image_tag proposal.image %>
             <h5 class="francois"><%= proposal.title %></h5>
           </div>
-          <p><%= proposal.description %></p>
+          <p class="desc"><%= proposal.description %></p>
           <div class="actions">
             <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
             <%= link_to "Selecionar", proposal_path(proposal), class: 'select-proposal', data: { id: proposal.id } %>

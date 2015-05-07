@@ -36,6 +36,7 @@ window.App = {
     this.refreshFormFields();
     this.watchForm();
     this.watchFixedMsgActions();
+    this.watchUndoSelection();
 
   },
 
@@ -52,6 +53,11 @@ window.App = {
     }
   },
 
+  watchUndoSelection: function(){
+    $('.select-proposal-undo').click(function(){
+      $('.select-proposal[data-id='+$(this).data('id')+']').click();
+    });
+  },
 
   watchForm: function(){
     var self = this;
@@ -93,7 +99,7 @@ window.App = {
       var obj = $('.proposal-text .select-proposal[data-id='+this.proposals[i]+']')
       
       obj.toggleClass('disabled');
-      obj.text('Deselecionar projeto');
+      obj.text('Desfazer seleção');
     }
   },
 
@@ -164,7 +170,7 @@ window.App = {
         self.proposals.push(id);
         obj.toggleClass('disabled');
         store.set('proposals', self.proposals);
-        obj.text('Deselecionar este projeto');
+        obj.text('Desfazer seleção');
       }
 
       self.updateCounter();

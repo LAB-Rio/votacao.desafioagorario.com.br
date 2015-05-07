@@ -80,8 +80,30 @@ body
     font-size: .9em
     text-align: justify
     padding: 1.4em 0
+  .deselect
+    display: none
   &.selected
-    opacity: .3
+    .image, .actions, .desc
+      opacity: .2
+    .deselect
+      display: block
+      position: absolute
+      opacity: 1
+      z-index: 99
+      top: 50%
+      text-align: center
+      width: 80%
+      a
+        color: #000
+        padding: .6em
+        display: inline-block
+        font-size: 1.2em
+        font-family: 'Francois One'
+        &:hover
+          color: #666
+          opacity: .9
+
+
 
 .actions
   display: block
@@ -135,7 +157,8 @@ body
 
 .fixed-save
   width: 100%
-  background: rgba(230,230,230, 1)
+  background: rgba(230,230,230, .8)
+  z-index: 9990
   height: 60px
   position: fixed
   bottom: 0
@@ -231,3 +254,5 @@ body
 .close
   background: #999
 
+.main-title
+  margin-bottom: 0
