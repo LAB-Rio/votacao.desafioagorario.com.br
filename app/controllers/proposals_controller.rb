@@ -25,21 +25,23 @@ class ProposalsController < ApplicationController
     @proposals = current_user.proposals
     @new_proposals = find_proposals(current_proposals)
     
-    return render :already_saved if @proposals.any?
+    if @proposals.any?
+      return render :already_saved 
+    end
 
     @new_proposals.each_with_index do |proposal, index|
-      return render :success if index > 9
+      if index > 9
+        return render :success
+      end
       current_user.proposals << proposal
     end
     
     render :success
   end
 
-  def already_saved
-  end
+  def already_saved;end
 
-  def success
-  end
+  def success;end
 
   private
     def find_proposals(ids)

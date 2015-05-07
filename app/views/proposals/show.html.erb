@@ -60,8 +60,24 @@
     <div class="medium-4 small-4 columns text-right">
       <%= form_for :proposals_users, html: { id: 'proposalForm' }, url: '/proposals/save', method: :post do |f| %>
         <span class="inputs"></span> 
-        <%= f.button 'Finalizar e salvar votos', class: :button %>
+        <%= f.button 'Finalizar e salvar votos', class: [:button, :submit] %>
       <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="fixed-msg hide">
+  <div class="row">
+    <div class="medium-6 fixed-block text-center medium-centered columns">
+      <h3 class="francois">Você votou em apenas <span class="selected-count">0</span> projetos. Você ainda pode votar em mais <span class="left-counter">10</span>.</h3> 
+      <br/>
+      <h5 class="francois">Deseja concluir mesmo assim? </h5>
+      <p>
+        <br/>
+        <a href="#" class="close button">Voltar</a>&nbsp;
+        <a href="#" class="save button">Continuar</a>
+      </p>
     </div>
   </div>
 </div>

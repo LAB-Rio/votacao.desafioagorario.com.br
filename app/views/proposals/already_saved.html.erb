@@ -23,8 +23,8 @@
     Deseja descartar esses votos e substituí-los pelos que você acabou de votar?
     <br/>
     <br/>
-    <%= link_to "Voltar", proposals_path, class: :button %>
+    <%= link_to "Voltar", proposals_path, class: [:button, :close] %>
     &nbsp;
-    <%= link_to "Sim", save_path(existing: true), method: :post, class: :button %>
+    <%= link_to "Continuar", save_path(existing: true), method: :post, class: :button %>
   </p>
 </div>

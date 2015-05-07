@@ -34,6 +34,8 @@ window.App = {
     this.disableButtons();
     this.addToSelected();
     this.refreshFormFields();
+    this.watchForm();
+    this.watchFixedMsgActions();
 
   },
 
@@ -48,6 +50,38 @@ window.App = {
       
       $('#proposalForm .inputs').html('').append(input);
     }
+  },
+
+
+  watchForm: function(){
+    var self = this;
+
+    $('#proposalForm button.submit').on('click', function(e){
+      var arrSize = self.proposals.length; 
+
+      if( arrSize == 0) {
+        e.preventDefault();
+        alert('Você precisa selecionar pelo menos um projeto.');
+      } 
+      else if (arrSize > 0 && arrSize < 10) {
+        e.preventDefault();
+        $('.fixed-msg').fadeIn();
+      }
+
+
+    });
+
+  },
+
+
+  watchFixedMsgActions: function(){
+    $('.fixed-msg .close').click(function(){
+      $('.fixed-msg').fadeOut();
+    });
+
+    $('.fixed-msg .save').click(function(){
+      $('#proposalForm').submit();
+    });
   },
 
   disableButtons: function(){
@@ -65,6 +99,7 @@ window.App = {
 
   updateCounter: function(){
     $('span.selected-count').html(this.proposals.length);
+    $('span.left-counter').html(10 - this.proposals.length);
   },
 
   fillSelectedBoxes: function(){
