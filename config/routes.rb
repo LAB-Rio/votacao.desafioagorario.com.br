@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   resources :proposals, only: [:index, :show]
+
   post 'proposals/save' => 'proposals#save', as: :save
+  post 'proposals/existing' => 'proposals#existing', as: :save_existing
+  
   get '/about' => 'pages#about', as: :about
   root 'pages#index'
 

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="medium-8 already-warning medium-centered columns">
+    <h3 class="text-center francois">Olá, verificamos aqui que você já votou em um outro momento nas propostas abaixo:</h3>
+
+  </div>
+
+  <div class="existing-proposals medium-8 medium-centered columns">
+    <div class="row">
+      <br/>
+      <% @proposals.each do |proposal| %>
+        <div class="medium-3 small-6 columns end">
+          <%= image_tag proposal.image %>
+          <h6><%= proposal.title %></h6>
+        </div>
+      <% end %>
+    </div>
+      <br/>
+  </div>
+
+
+  <p class="text-center">
+    <br/><br/>
+    Deseja descartar esses votos e substituí-los pelos que você acabou de votar?
+    <br/>
+    <br/>
+    <%= link_to "Voltar", proposals_path, class: :button %>
+    &nbsp;
+    <%= link_to "Sim", save_path(existing: true), method: :post, class: :button %>
+  </p>
+</div>

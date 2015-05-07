@@ -33,6 +33,21 @@ window.App = {
     this.watchSelected();
     this.disableButtons();
     this.addToSelected();
+    this.refreshFormFields();
+
+  },
+
+  refreshFormFields: function(){
+    var input = '';
+    var arrSize = this.proposals.length;
+
+    if (arrSize > 0) {
+      for (i = 0; i < arrSize; i++) {
+        input += '<input type="hidden" name="proposals[user_proposals][]" value="'+this.proposals[i]+'"/>';
+      }
+      
+      $('#proposalForm .inputs').html('').append(input);
+    }
   },
 
   disableButtons: function(){
@@ -90,7 +105,7 @@ window.App = {
 
         console.log(store.get('proposals'));
         self.updateCounter();
-
+        self.refreshFormFields();
     });
 
   },
@@ -118,6 +133,7 @@ window.App = {
       }
 
       self.updateCounter();
+      self.refreshFormFields();
     });
   }
 
