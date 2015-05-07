@@ -114,6 +114,7 @@ window.App = {
         self.proposals.push(id);
         obj.toggleClass('disabled');
         store.set('proposals', self.proposals);
+        obj.text('Deselecionar este projeto');
       }
 
       self.updateCounter();
