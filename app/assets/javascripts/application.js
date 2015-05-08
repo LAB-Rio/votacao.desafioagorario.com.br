@@ -130,6 +130,12 @@ window.App = {
 
     $('.proposals .select-proposal').on('click', function(e){
         e.preventDefault();
+
+        if (self.proposals.length > 10) {
+          alert('Você já selecionou 10 projetos. Você pode desfazer ou limpar a seleção atual se quiser votar em um novo projeto.')
+          return false;
+        }
+
         var id = $(this).data('id');
         var el = $('div.proposal[data-id='+id+']');
 
@@ -155,7 +161,16 @@ window.App = {
     var self = this;
 
     $('.proposal-text .select-proposal').on('click', function(e){
+
       e.preventDefault();
+      if (self.proposals.length > 10) {
+        alert('Você já selecionou 10 projetos. Você pode desfazer ou limpar a seleção atual se quiser votar em um novo projeto.')
+        return false;
+      }
+
+
+
+
       var obj = $(this);
       var id = obj.data('id');
 

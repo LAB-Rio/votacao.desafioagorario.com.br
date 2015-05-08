@@ -18,10 +18,10 @@
             <a class="select-proposal-undo" data-id="<%= proposal.id %>"><%= image_tag 'undo.png', size: '20x20'%> Desfazer seleção</a>
           </div>
           <div class="image">
-            <%= image_tag proposal.image %>
-            <h5 class="francois"><%= proposal.title %></h5>
+            <%= link_to image_tag(proposal.image), proposal %>
+            <h5 class="francois"><%= link_to proposal.title, proposal %></h5>
           </div>
-          <p class="desc"><%= proposal.description %></p>
+          <p class="desc"><%= link_to proposal.description, proposal %></p>
           <div class="actions">
             <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
             <%= link_to "Selecionar", proposal_path(proposal), class: 'select-proposal', data: { id: proposal.id } %>
