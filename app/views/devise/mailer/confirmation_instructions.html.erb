@@ -1,5 +1,17 @@
-<p>Welcome <%= @email %>!</p>
+<p>
+  Opa! Acabamos de receber seus votos no Desafio Ágora Rio: Mobilidade Urbana, mas para que eles sejam contabilizados precisamos que você clique no link abaixo:
+</p>
 
-<p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>
+  <%= link_to confirmation_url(@resource, confirmation_token: @token), confirmation_url(@resource, confirmation_token: @token) %>
+</p>
+
+<p>
+  Essa validação serve para garantirmos a confiabilidade no sistema de votação! ;)
+</p>
+
+<p>
+  Obrigado por sua participação!
+  Equipe Ágora Rio
+</p>

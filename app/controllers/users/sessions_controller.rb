@@ -1,11 +1,26 @@
 # users/registrations_controller.rb
-class Users::RegistrationsController < Devise::RegistrationsController
-  protected
-    def after_sign_up_path_for(resource)
-      save_path(proposals: { user_proposals: session[:proposal_ids] })
+class Users::SessionsController < Devise::SessionsController
+
+  def create 
+    @user = User.find_or_initialize_by(signin_params)
+
+
+    if @user.new_record? || !@user.confirmed?
+      @user.save! if @user.new_record?
+
+      respond_with resource, location: confirmation_message_path
+    else
+      sign_in('user', @user)
+      respond_with resource, location: after_sign_in_path_for(resource)
     end
 
-    def after_update_path_for(resource)
-      save_path(proposals: { user_proposals: session[:proposal_ids] })
-    end
+    #self.resource = warden.authenticate!(auth_options)
+    #set_flash_message(:notice, :signed_in) if is_flashing_format?
+    #yield resource if block_given?
+  end
+
+
+  def signin_params
+    params.require(:user).permit(:first_name, :last_name, :email)
+  end
 end
