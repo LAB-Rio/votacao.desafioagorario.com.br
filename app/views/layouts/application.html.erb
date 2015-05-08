@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Desafio Ágora Rio" %></title>
 
+    <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
     <%= stylesheet_link_tag    "https://fonts.googleapis.com/css?family=Francois+One" %>
     <%= stylesheet_link_tag    "application" %>
     <%= csrf_meta_tags %>
@@ -34,7 +35,7 @@
           A Prefeitura do Rio quer saber: quais dessas</br>  propostas você gostaria de ver na cidade?
           <br/> </br> Entre e vote em até 10 projetos</br>  para a mobilidade urbana carioca!
           </p>
-          <%= link_to 'Entrar', proposals_path, class: [:button, :francois] %>
+          <%= link_to 'Votar', proposals_path, class: [:button, :francois] %>
         </div>
       </div>  
     </div>
