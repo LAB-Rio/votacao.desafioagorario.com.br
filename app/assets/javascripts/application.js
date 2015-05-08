@@ -37,6 +37,7 @@ window.App = {
     this.watchForm();
     this.watchFixedMsgActions();
     this.watchUndoSelection();
+    this.cleanSelection();
 
   },
 
@@ -79,6 +80,18 @@ window.App = {
 
   },
 
+  cleanSelection: function() {
+    var self = this;
+    $('.clean-selection').click(function(e){
+      e.preventDefault();
+      if ( self.proposals.length > 0 ) {
+        $('.proposal.selected').removeClass('selected');
+        store.set('proposals', []);
+        self.proposals = [];
+        self.updateCounter();
+      }
+    });
+  },
 
   watchFixedMsgActions: function(){
     $('.fixed-msg .close').click(function(){
