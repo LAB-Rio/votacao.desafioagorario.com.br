@@ -7,7 +7,7 @@
 
   </div>
   <div class="medium-7 medium-centered proposal-text columns">
-    <p> <%= raw(@proposal.large_description.html_safe) %></p>
+    <p> <%= simple_format @proposal.large_description.html_safe, {}, sanitize: false %></p>
     <div class="row">
         <div class="medium-6 medium-centered text-center columns">
           <%= link_to "Selecionar este projeto", '', class: 'select-proposal', data: { id: @proposal.id } %> 
