@@ -52,14 +52,13 @@
 
 <div class="fixed-save">
   <div class="row">
-    <div class="medium-4 small-4 columns">
-      &nbsp;
-      <a href="#" class="button clean-selection">Limpar</a>
+    <div class="medium-4 small-4 end columns">
+      <a href="#" class="button clean-selection">Limpar votos</a>
     </div>
-    <div class="medium-4 small-3 columns counter text-center">
+    <div class="medium-4 small-3 columns end counter text-center">
       <span class="selected-count">0</span>  de <span> 10</span>
     </div>
-    <div class="medium-4 small-5 columns text-right">
+    <div class="medium-4 small-5 columns end text-right">
       <%= form_for :proposals_users, html: { id: 'proposalForm' }, url: save_path, method: :post do |f| %>
         <span class="inputs"></span> 
         <%= f.button 'Finalizar e salvar votos', class: [:button, :submit, 'hide-for-small-only'] %>
