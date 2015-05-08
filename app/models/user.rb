@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and 
-  devise :database_authenticatable, :registerable, :omniauthable,
+  devise :database_authenticatable, :registerable, :omniauthable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauth_providers => [:facebook]
 
 
@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
     end
   end
  
+  def password_required? 
+    false 
+  end 
 
 
 end

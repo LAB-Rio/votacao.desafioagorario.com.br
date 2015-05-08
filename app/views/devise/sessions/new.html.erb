@@ -12,12 +12,21 @@
     <% end -%>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <% if alert or notice %><span class="error"><%= alert || notice %></span><% end %>
+
+        <%= f.label :first_name, 'Nome' %>
+        <%= f.text_field :first_name, autofocus: true %>
+
+        <%= f.label :last_name, 'Sobrenome' %>
+        <%= f.text_field :last_name %>
+
+
+
+
+
         <%= f.label :email %>
-        <%= f.email_field :email, autofocus: true %>
-
-        <%= f.label :password, "Senha" %>
-        <%= f.password_field :password, autocomplete: "off" %>
-
+        <%= f.email_field :email %>
+        <%# f.label :password, "Senha" %>
+        <%# f.password_field :password, autocomplete: "off" %>
       <%= f.submit "Entrar", class: [:button, :login] %>
     <% end %>
 

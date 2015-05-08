@@ -23,16 +23,8 @@
         <%= f.label :email %>
         <%= f.email_field :email %>
 
-        <%= f.label :password, 'Senha' %>
-        <% if @validatable %>
-          <small>(mínimo de <%= @minimum_password_length %> caracteres)</small>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off" %>
 
-        <%= f.label :password_confirmation, 'Confirme sua senha' %>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
-        <%= f.submit "Cadastrar", class: [:button, :login] %>
+        <%= f.submit "Entrar", class: [:button, :login] %>
     <% end %>
     <%= render "devise/shared/links" %>
 
