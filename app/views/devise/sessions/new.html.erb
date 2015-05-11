@@ -2,6 +2,8 @@
 <div class="row">
 
   <div class="medium-5 medium-centered login-block columns">
+
+    <strong>  Para validar os seus votos, faça login com o Facebook ou informe seu nome e e-mail.  </strong>
     <%- if devise_mapping.omniauthable? %>
       <%- resource_class.omniauth_providers.each do |provider| %>
         <%= link_to omniauth_authorize_path(resource_name, provider), class: provider do %>
