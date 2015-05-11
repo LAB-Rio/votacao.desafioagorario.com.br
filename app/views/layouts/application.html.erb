@@ -4,12 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Desafio Ágora Rio" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Desafio Ágora Rio: Mobilidade Urbana" %></title>
 
     <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
     <%= stylesheet_link_tag    "https://fonts.googleapis.com/css?family=Francois+One" %>
     <%= stylesheet_link_tag    "application" %>
     <%= csrf_meta_tags %>
+
+
+    <% if content_for? :facebook %>
+      <%= yield :facebook %>
+    <% else %>
+      <meta property="og:title" content="[Votação] Desafio Ágora Rio: Mobilidade Urbana"/>
+      <meta property="og:description" content="São vinte projetos para a cidade e você pode escolher até dez para votar. Escolha os seus e convide todo mundo pra votar também!"/>
+      <meta property="og:image" content="http://i.imgur.com/fmjR1Q1.png"/>
+      <meta property="og:site_name" content="Votação Desafio Ágora Rio"/>
+      <meta property="og:url" content="http://vote.desafioagora.rio.com.br"/>
+      <meta property="og:locale" content="pt_BR" />
+      <meta property="fb:app_id" content="642290912570358" />
+      
+        
+    <% end %>
+
   </head>
 
   <body>

@@ -1,3 +1,17 @@
+<%= content_for :title, "Desafio Ágora Rio: #{@proposal.title}" %>
+
+<%= content_for :facebook do %>
+  <meta property="og:title" content="<%= @proposal.title %>"/>
+  <meta property="og:description" content="<%= @proposal.description %>"/>
+  <meta property="og:image" content="http://i.imgur.com/fmjR1Q1.png"/>
+  <meta property="og:site_name" content="Votação Desafio Ágora Rio"/>
+  <meta property="og:url" content="<%= proposal_url(@proposal)%>"/>
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="fb:app_id" content="642290912570358" /> 
+<% end %>
+
+
+
 
 <div class="full-image" style="background: url('<%= @proposal.image %>') no-repeat; background-size: cover">
   <h3 class="francois text-uppercase"><%= @proposal.title %></h3>
