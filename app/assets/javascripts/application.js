@@ -38,6 +38,7 @@ window.App = {
     this.watchFixedMsgActions();
     this.watchUndoSelection();
     this.cleanSelection();
+    this.undoAction = false;
 
   },
 
@@ -55,8 +56,11 @@ window.App = {
   },
 
   watchUndoSelection: function(){
+    var self = this;
     $('.select-proposal-undo').click(function(){
+      self.undoAction = true;
       $('.select-proposal[data-id='+$(this).data('id')+']').click();
+
     });
   },
 
@@ -144,7 +148,7 @@ window.App = {
     $('.proposals .select-proposal').on('click', function(e){
         e.preventDefault();
 
-        if (self.proposals.length > 9) {
+        if (self.proposals.length > 9 && self.undoAction == false) {
           alert('Você já selecionou 10 projetos. Você pode desfazer ou limpar a seleção atual se quiser votar em um novo projeto.')
           return false;
         }
@@ -163,9 +167,11 @@ window.App = {
           store.set('proposals', self.proposals);
         }
 
-        console.log(store.get('proposals'));
+        //console.log(store.get('proposals'));
+        
         self.updateCounter();
         self.refreshFormFields();
+        self.undoAction = false;
     });
 
   },

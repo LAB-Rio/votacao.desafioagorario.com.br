@@ -1,0 +1,10 @@
+# Use the README file as a reference to customize settings.
+
+User:
+  fields:
+    default: first_name, email, provider, confirmed_at, proposals.count 
+    form: first_name, last_name, email
+  relationships: category
+  application: Votação 
+  search: first_name, email
+
