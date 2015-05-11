@@ -8,13 +8,12 @@
     <div class="row">
       <br/>
       <% @proposals.each do |proposal| %>
-        <div class="medium-3 small-6 columns end">
+        <div class="medium-3 small-6 columns proposal-block end">
           <%= image_tag proposal.image %>
           <h6><%= proposal.title %></h6>
         </div>
       <% end %>
     </div>
-      <br/>
   </div>
 
 
