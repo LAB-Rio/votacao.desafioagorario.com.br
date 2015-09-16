@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", confirmations: 'users/confirmations', sessions: 'users/sessions' }
   
-  #resources :proposals, only: [:index]
+  resources :proposals, only: [:index]
 
-  #match 'voting/save' => 'proposals#save', as: :save, via: [:get, :post]
-  #post 'proposals/existing' => 'proposals#existing', as: :save_existing
+  match 'voting/save' => 'proposals#save', as: :save, via: [:get, :post]
+  post 'proposals/existing' => 'proposals#existing', as: :save_existing
   
-  #get '/confirm' => 'pages#confirmation', as: :confirmation_message
-  #get '/about' => 'pages#about', as: :about
+  get '/confirm' => 'pages#confirmation', as: :confirmation_message
+  get '/about' => 'pages#about', as: :about
   root 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
