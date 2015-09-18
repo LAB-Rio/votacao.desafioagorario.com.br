@@ -1,6 +1,6 @@
 <%= content_for :title, "Propostas em votação" %>
 
-<div class="row" data-equalizer>
+<!--<div class="row" data-equalizer>
   <div class="medium-7 medium-centered columns">
     <br/>
     <h2 class="francois text-uppercase main-title text-center">Projetos em votação</h2>
@@ -10,7 +10,7 @@
     <br/>
       Vote nas 10 propostas que você gostaria de ver na cidade!</p>
   </div>
-</div>
+  </div>-->
 
 <% @proposals.in_groups_of(3, false) do |group| %> 
   <div class="row proposals" data-equalizer>
@@ -22,10 +22,13 @@
             <a class="select-proposal-undo" data-id="<%= proposal.id %>"><%= image_tag 'undo.png', size: '20x20'%> Desfazer seleção</a>
           </div>
           <div class="image">
-            <%= link_to image_tag(proposal.image), proposal %>
-            <h5 class="francois"><%= link_to proposal.title, proposal %></h5>
+            <h5><%= image_tag "quotes.png" %> <%= link_to proposal.title, proposal %></h5>
+
+            <div class="text-center about-proposal">Maria Elisa &nbsp;|&nbsp; 14-18 anos &nbsp;| &nbsp;Zona Norte</div>
+            <br/>
+            <br/>
           </div>
-          <p class="desc"><%= link_to proposal.description, proposal %></p>
+          <!--<p class="desc"><%= link_to proposal.description, proposal %></p>-->
           <div class="actions">
             <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
             <%= link_to "Selecionar", proposal_path(proposal), class: 'select-proposal', data: { id: proposal.id } %>
@@ -46,7 +49,7 @@
       <a href="#" class="button clean-selection show-for-small-only">Limpar</a>
     </div>
     <div class="medium-4 small-3 columns end counter text-center">
-      <span class="selected-count">0</span>  de <span> 10</span>
+      <!--<span class="selected-count">0</span>  de <span> 10</span>-->
     </div>
     <div class="medium-4 small-5 columns end text-right">
       <%= form_for :proposals_users, html: { id: 'proposalForm' }, url: save_path, method: :post do |f| %>

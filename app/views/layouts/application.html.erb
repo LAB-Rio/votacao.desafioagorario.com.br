@@ -32,37 +32,40 @@
     <% if !current_page?(root_path) %>
     <div id="header">
       <div class="row">
-        <div class="medium-8 small-5 columns logo">
+        <div class="medium-6 small-5 columns logo">
           <%= link_to image_tag("logo.png"), root_path %>
         </div>
 
-        <div class="medium-4 small-7 main-navigation columns end">
-          <%= link_to 'Saiba mais', about_path %> 
+        <div class="medium-6 small-7 main-navigation columns end">
+          <%= link_to 'Edital', about_path, class: 'text-uppercase francois' %> 
+          <%= link_to 'O que é', about_path, class: 'text-uppercase francois' %> 
+          <%= link_to 'Saiba mais', about_path, class: 'text-uppercase francois' %> 
         </div>
       </div>
     </div>
     <% else %>
 
     <div id="presentation">
-      <div class="row">
-        <div class="medium-6 medium-centered text-center columns">
-          <%= link_to image_tag("logo.png"), root_path %>
-          <p>
-            Fase de votação encerrada. Curta nossa página no facebook para acompanhar os
-            próximos passos!
-          </p>
+      <div class="wrapping">
+        <div class="row">
+          <div class="medium-6 medium-centered text-center columns">
+            <h1 class="francois text-uppercase">Votação Conselho da Juventude da Cidade</h1>
+            <br/>
+            <br/>
+            <%= link_to "Votar", proposals_path, class: 'supper-button button francois text-uppercase' %>
 
-          <div class="fb-page" data-href="https://www.facebook.com/labrj" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/labrj"><a href="https://www.facebook.com/labrj">LAB.Rio</a></blockquote></div></div>
-        </div>
+            <!--<div class="fb-page" data-href="https://www.facebook.com/labrj" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/labrj"><a href="https://www.facebook.com/labrj">LAB.Rio</a></blockquote></div></div>-->
+          </div>
 
 
-        <div class="medium-4 text-center medium-centered columns">
-          <br/>
-          <%= link_to image_tag('lab.png'), 'http://labrio.cc', target: '_blank' %>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <%= link_to image_tag('pref.png'), 'http://prefeitura.rio', target: '_blank' %>
-        </div>
-      </div>  
+          <div class="medium-4 text-center medium-centered columns">
+            <br/>
+            <%= link_to image_tag('lab.png'), 'http://labrio.cc', target: '_blank' %>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <%= link_to image_tag('pref.png'), 'http://prefeitura.rio', target: '_blank' %>
+          </div>
+        </div>  
+      </div>
     </div>
 
     <div id="fb-root"></div>

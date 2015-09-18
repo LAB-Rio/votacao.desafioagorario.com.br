@@ -13,19 +13,40 @@ body
 .button:hover, .select-proposal:hover, .see-more:hover
   background: white !important
   color: #004786 !important
+.wrapping
+  background: rgba(0,0,0,0.8)
+  width: 100%
+  height: 100%
+  z-index: 2
+  position: relative
+
+.supper-button
+  background: none !important
+  border: 3px solid white
+  color: white !important
+
+#presentation:before
+  content: ""
+  background: image-url('bgimg.jpg')
+  background-size: cover
+  height: 100%
+  width: 100%
+  position: fixed
+  z-index: 1
+  -webkit-filter: blur(5px)
 
 #presentation
-  background: image-url('bg.png') 
-  padding-top: 15%
   height: 100%
   p
     color: white
     margin: .8em auto
     background: #00487D 
     padding: 1em
-  h2
+  h2, h1
     color: white
-
+  h1
+    font-weight: bold
+    margin-top: 35%
   .button
     background: #00BBF1
     text-transform: uppercase
@@ -36,7 +57,7 @@ body
     padding: .4em 1.2em
 
 #header 
-  background: #004786
+  //background: #004786
   z-index: 10
   margin-bottom: .4em
 
@@ -45,10 +66,12 @@ body
   margin-top: 1.4em
   a 
     display: inline-block
-    background: #00AC6A
     margin: -1em .8em
-    color: white
+    color: #222
     padding: .4em .6em
+    &:hover
+      background: #222
+      color: white
   
 .logo img
   width: auto
@@ -62,25 +85,26 @@ body
 
 .proposal-wrapper
   margin-bottom: 1em
+.about-proposal
+  font-size: .9em
+  padding-top: .4em
+  margin-top: 1em
+  color: #ccc
 .proposal
   padding: 1.4em .8em
   height: 100%
-  background: #f3f3f3
-  box-shadow: 0 1px 1px #ccc
+  background: none
+  border: 2px solid #ccc
   .desc a
     color: #444
   h5
-    text-transform: uppercase
-    font-size: 120% 
-    position: absolute
-    color: white
+    font-size: 110% 
     top: 10%
-    width: 68%
     margin: auto 5%
-    text-shadow: 0 1px 1px #333
     letter-spacing: 1px
     a
-      color: white
+      color: #111
+      font-weight: 300
   p
     font-size: .9em
     text-align: justify
@@ -262,11 +286,16 @@ body
   .save
     display: inline-block
     margin-left: .6em
+
   .selected-count, .left-counter
     color: #FC9C00 
 .fixed-block
   margin-top: 14%
 
+.submit, .clean-selection
+  background: none !important
+  border: 3px solid #333
+  color: #333 !important
 
 .close
   background: #999
@@ -274,8 +303,7 @@ body
 .main-title
   margin-bottom: 0
 
-.clean-selection
-  background: #999 !important
+
 
 
 

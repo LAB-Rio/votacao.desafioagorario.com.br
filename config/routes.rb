@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", confirmations: 'users/confirmations', sessions: 'users/sessions' }
   
-  resources :proposals, only: [:index]
+  resources :proposals, only: [:index, :show]
 
   match 'voting/save' => 'proposals#save', as: :save, via: [:get, :post]
   post 'proposals/existing' => 'proposals#existing', as: :save_existing

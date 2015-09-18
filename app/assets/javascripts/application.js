@@ -72,9 +72,9 @@ window.App = {
 
       if( arrSize == 0) {
         e.preventDefault();
-        alert('Você precisa selecionar pelo menos um projeto.');
+        alert('Você precisa selecionar pelo menos uma proposta.');
       } 
-      else if (arrSize > 0 && arrSize < 10) {
+      else if (arrSize > 0) {
         e.preventDefault();
         $('.fixed-msg').fadeIn();
       }
