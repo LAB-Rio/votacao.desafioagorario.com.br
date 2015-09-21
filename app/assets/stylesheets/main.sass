@@ -2,6 +2,7 @@
 body
   font-family: 'Helvetica', Arial, sans-serif
   -webkit-font-smoothing: antialiased
+  background: #EEEEEE
 .text-uppercase
   text-transform: uppercase
 .francois 
@@ -57,17 +58,16 @@ body
     padding: .4em 1.2em
 
 #header 
-  //background: #004786
+  background: #C57FC1
   z-index: 10
-  margin-bottom: .4em
 
 .main-navigation 
   text-align: right
   margin-top: 1.4em
   a 
     display: inline-block
-    margin: -1em .8em
-    color: #222
+    margin: .4em .8em
+    color: white
     padding: .4em .6em
     &:hover
       background: #222
@@ -93,9 +93,12 @@ body
 .proposal
   padding: 1.4em .8em
   height: 100%
-  background: none
-  border: 2px solid #ccc
+  background: white 
+  box-shadow: 0 1px 1px #666
   overflow: hidden
+  transition: all .2s
+  &:hover
+    -webkit-transform: scale(1.1)
   .desc a
     color: #444
   h5
@@ -137,21 +140,22 @@ body
 
 .actions
   display: block
-  text-align: right
-  position: absolute
+  text-align: center 
   bottom: 4%
-  left: 28%
+  position: absolute
+  width: 80%
+  margin: 0 auto
   
 
 .see-more, .select-proposal
-  background: #00AC6A
+  background: #C57FC1
   display: inline-block
-  margin-left: .4em
   padding: .4em .8em
   color: white
   font-family: 'Francois One'
   text-transform: uppercase
   font-size: .8em
+  width: 100%
   &:hover 
     background: #00BBF1 
     color: #333
