@@ -3,7 +3,7 @@ class Proposal < ActiveRecord::Base
   has_and_belongs_to_many :users, -> { uniq }
 
   def image
-    !image_url.empty? ? image_url : 'http://i.imgur.com/WzBlGku.png'
+    !image_url.empty? ? image_url : 'http://i.imgur.com/r9gMLrx.jpg'
   end
 
 
