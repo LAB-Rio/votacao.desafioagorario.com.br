@@ -22,16 +22,15 @@
             <a class="select-proposal-undo" data-id="<%= proposal.id %>"><%= image_tag 'undo.png', size: '20x20'%> Desfazer seleção</a>
           </div>
           <div class="image">
-            <h5><%= image_tag "quotes.png" %> <%= link_to proposal.title, proposal %></h5>
+            <h5><%= image_tag "quotes.png" %> <%= link_to proposal.title.camelize, proposal %></h5>
 
-            <div class="text-center about-proposal">Maria Elisa &nbsp;|&nbsp; 14-18 anos &nbsp;| &nbsp;Zona Norte</div>
+            <div class="text-center about-proposal"><%= proposal.fullname.split(' ')[0].camelize %> &nbsp;|&nbsp; <%= proposal.age %> &nbsp;| &nbsp; <%= proposal.ap_zone %> </div>
             <br/>
             <br/>
           </div>
           <!--<p class="desc"><%= link_to proposal.description, proposal %></p>-->
           <div class="actions">
-            <%= link_to "Ver mais", proposal_path(proposal), class: 'see-more' %>
-            <%= link_to "Selecionar", proposal_path(proposal), class: 'select-proposal', data: { id: proposal.id } %>
+            <%= link_to "Votar nesta proposta", proposal_path(proposal), class: 'select-proposal', data: { id: proposal.id } %>
           </div>
         </div>
       </div>
@@ -66,7 +65,7 @@
 <div class="fixed-msg hide">
   <div class="row">
     <div class="medium-6 fixed-block text-center medium-centered columns">
-      <h3 class="francois">Você votou em apenas <span class="selected-count">0</span> projetos. Você ainda pode votar em mais <span class="left-counter">10</span>.</h3> 
+      <h3 class="francois">Você votou em apenas <span class="selected-count">0</span> propostas.</h3> 
       <br/>
       <h5 class="francois">Deseja concluir mesmo assim? </h5>
       <p>

@@ -1,10 +1,10 @@
-<%= content_for :title, "Desafio Ágora Rio: #{@proposal.title}" %>
+<%= content_for :title, "Votação Conselho da Juventude: #{@proposal.fullname.split(' ')[0]}" %>
 
 <%= content_for :facebook do %>
   <meta property="og:title" content="<%= @proposal.title %>"/>
   <meta property="og:description" content="<%= @proposal.description %>"/>
   <meta property="og:image" content="http://i.imgur.com/fmjR1Q1.png"/>
-  <meta property="og:site_name" content="Votação Desafio Ágora Rio"/>
+  <meta property="og:site_name" content="Votação Conselho da Juventude"/>
   <meta property="og:url" content="<%= proposal_url(@proposal)%>"/>
   <meta property="og:locale" content="pt_BR" />
   <meta property="fb:app_id" content="642290912570358" /> 
@@ -24,7 +24,7 @@
     <%= simple_format @proposal.large_description.html_safe, {}, sanitize: false %>
     <div class="row">
         <div class="medium-6 medium-centered text-center columns">
-          <%= link_to "Selecionar este projeto", '', class: 'select-proposal', data: { id: @proposal.id } %> 
+          <%= link_to "Selecionar esta proposta", '', class: 'select-proposal', data: { id: @proposal.id } %> 
           <br/><br/>
         </div>
 
@@ -35,21 +35,21 @@
       <div class="medium-4 small-4 text-center columns">
         <%= link_to proposal_path(@proposal.prev) do %>
           <%= image_tag 'previous.png' %>
-          <span>Projeto anterior</span>
+          <span>Proposta anterior</span>
         <% end %>
       </div>
 
       <div class="medium-4 small-4 text-center columns">
         <%= link_to proposals_path do %>
           <%= image_tag 'home.png' %>
-          <span>Ver todos os projetos</span>
+          <span>Ver todos as propostas</span>
         <% end %>
       </div>
 
       <div class="medium-4 small-4 text-center columns">
         <%= link_to proposal_path(@proposal.next) do %>
           <%= image_tag 'next.png' %>
-          <span>Próximo projeto</span>
+          <span>Próxima proposta</span>
         <% end %>
       </div>
     </div>
@@ -87,7 +87,7 @@
 <div class="fixed-msg hide">
   <div class="row">
     <div class="medium-6 fixed-block text-center medium-centered columns">
-      <h3 class="francois">Você votou em apenas <span class="selected-count">0</span> projetos. Você ainda pode votar em mais <span class="left-counter">10</span>.</h3> 
+      <h3 class="francois">Você votou em apenas <span class="selected-count">0</span> propostas.</h3> 
       <br/>
       <h5 class="francois">Deseja concluir mesmo assim? </h5>
       <p>

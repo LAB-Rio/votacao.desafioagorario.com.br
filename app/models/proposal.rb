@@ -19,4 +19,15 @@ class Proposal < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
   end
+
+
+  def ap_zone
+    case zone
+    when "AP1" then "Centro"
+    when "AP2" then "Zona Sul"
+    when "AP3" then "Zona Norte"
+    when "AP4" then "Jacarépagua/Barra"
+    when "AP5" then "Zona Oeste"
+    end
+  end
 end

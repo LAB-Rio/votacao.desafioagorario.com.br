@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require storejson
 //= require store
+//= require nprogress
+//= require nprogress-turbolinks
 //= require_tree .
 
 $(document).ready(function(){
@@ -148,10 +150,10 @@ window.App = {
     $('.proposals .select-proposal').on('click', function(e){
         e.preventDefault();
 
-        if (self.proposals.length > 9 && self.undoAction == false) {
-          alert('Você já selecionou 10 projetos. Você pode desfazer ou limpar a seleção atual se quiser votar em um novo projeto.')
-          return false;
-        }
+/*        if (self.proposals.length > 9 && self.undoAction == false) {*/
+          //alert('Você já selecionou 10 projetos. Você pode desfazer ou limpar a seleção atual se quiser votar em um novo projeto.')
+          //return false;
+        /*}*/
 
         var id = $(this).data('id');
         var el = $('div.proposal[data-id='+id+']');

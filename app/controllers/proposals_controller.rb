@@ -2,7 +2,7 @@ class ProposalsController < ApplicationController
   respond_to :html
 
   def index
-    @proposals = Proposal.all
+    @proposals = Proposal.all.shuffle
   end
 
   def show
@@ -32,7 +32,7 @@ class ProposalsController < ApplicationController
     end
 
     @new_proposals.each_with_index do |proposal, index|
-      if index > 9
+      if index > 1
         return render :success
       end
       current_user.proposals << proposal
