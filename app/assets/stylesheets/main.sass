@@ -97,10 +97,11 @@ body
   box-shadow: 0 1px 1px #666
   overflow: hidden
   transition: all .2s
-  &:hover
-    -webkit-transform: scale(1.1)
+  position: relative
   .desc a
     color: #444
+  &:hover
+    top: -10px
   h5
     font-size: 110% 
     top: 10%
@@ -140,16 +141,16 @@ body
 
 .actions
   display: block
+  clear: both
   text-align: center 
   bottom: 4%
   position: absolute
-  width: 80%
-  margin: 0 auto
+  width: 92%
   
 
 .see-more, .select-proposal
   background: #C57FC1
-  display: inline-block
+  display: block
   padding: .4em .8em
   color: white
   font-family: 'Francois One'

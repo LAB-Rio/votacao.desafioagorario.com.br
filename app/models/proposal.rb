@@ -23,6 +23,7 @@ class Proposal < ActiveRecord::Base
 
   def ap_zone
     case zone
+    when "AP0" then "Outros"
     when "AP1" then "Centro"
     when "AP2" then "Zona Sul"
     when "AP3" then "Zona Norte"
