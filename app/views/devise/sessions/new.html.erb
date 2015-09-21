@@ -4,14 +4,14 @@
   <div class="medium-5 medium-centered login-block columns">
 
     <strong>  Para validar os seus votos, faça login com o Facebook ou informe seu nome e e-mail.  </strong>
-    <%- if devise_mapping.omniauthable? %>
+ <!--   <%- if devise_mapping.omniauthable? %>
       <%- resource_class.omniauth_providers.each do |provider| %>
         <%= link_to omniauth_authorize_path(resource_name, provider), class: provider do %>
           <%= image_tag 'facebook.jpg',size: '50x50' %>
           Conecte usando o <%= provider.to_s.titleize %> 
         <% end %>
       <% end -%>
-    <% end -%>
+    <% end -%>-->
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <%= f.label :first_name, 'Nome' %>
