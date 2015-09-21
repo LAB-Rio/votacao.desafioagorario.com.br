@@ -79,7 +79,7 @@ Rails.application.configure do
 
 
 
-  config.action_mailer.default_url_options = { :host => 'vote.conselhodajuventude.com.br' }
+  config.action_mailer.default_url_options = { :host => 'votacao.conselhodajuventude.com.br' }
   config.action_mailer.delivery_method = :smtp
  
 
