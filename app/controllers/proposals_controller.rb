@@ -32,9 +32,6 @@ class ProposalsController < ApplicationController
     end
 
     @new_proposals.each_with_index do |proposal, index|
-      if index > 1
-        return render :success
-      end
       current_user.proposals << proposal
     end
    
