@@ -1,6 +1,8 @@
 # users/registrations_controller.rb
 class Users::SessionsController < Devise::SessionsController
+  skip_before_action :verify_authenticity_token
 
+  
   def create 
     @user = User.find_or_initialize_by(signin_params)
 

@@ -1,5 +1,6 @@
 class ProposalsController < ApplicationController
   respond_to :html
+  skip_before_action :verify_authenticity_token
 
   def index
     @proposals = Proposal.includes(:users).order('random()')
