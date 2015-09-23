@@ -22,15 +22,20 @@ class ProposalsController < ApplicationController
 
     session[:proposal_ids] = current_proposals
 
+    return render :index if current_proposals.empty?
+
     authenticate_user!
 
 
     @proposals = current_user.proposals
     @new_proposals = find_proposals(current_proposals)
-    
+
+
+
     if @proposals.any?
       return render :already_saved 
     end
+
 
     @new_proposals.each_with_index do |proposal, index|
       current_user.proposals << proposal
@@ -46,6 +51,7 @@ class ProposalsController < ApplicationController
   private
     def find_proposals(ids)
       proposals = []
+
       ids.each do |prop|
         proposals << Proposal.find_by(id: prop)
       end
