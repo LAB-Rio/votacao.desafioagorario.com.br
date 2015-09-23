@@ -32,14 +32,14 @@
     <% if !current_page?(root_path) %>
     <div id="header">
       <div class="row">
-        <div class="medium-5 columns logo">
+        <div class="medium-5 small-6 columns logo">
           <%= link_to image_tag("http://conselhodajuventude.com/assets/images/logo.png"), proposals_path %>
         </div>
 
-        <div class="medium-7 main-navigation columns small-text-left end">
+        <div class="medium-7 small-6 main-navigation columns small-text-right end">
           <%= link_to 'Sobre o conselho', about_path, class: 'text-uppercase francois' %> 
-          <%= link_to 'Sobre a votação', "https://drive.google.com/file/d/0B0soO03hL7CRQktrSkFXci0tUEVwYWxqLVhZZEE0Sm1id3JF/view", target: "_blank", class: 'text-uppercase francois' %> 
-          <%= link_to 'Chamada pública', "https://drive.google.com/file/d/0B0soO03hL7CRUm02dVl4TzdNWnc/view", target: "_blank", class: 'text-uppercase francois' %> 
+          <%= link_to 'Sobre a votação', "https://drive.google.com/file/d/0B0soO03hL7CRQktrSkFXci0tUEVwYWxqLVhZZEE0Sm1id3JF/view", target: "_blank", class: 'text-uppercase francois hide-for-small-only' %> 
+          <%= link_to 'Chamada pública', "https://drive.google.com/file/d/0B0soO03hL7CRUm02dVl4TzdNWnc/view", target: "_blank", class: 'text-uppercase francois hide-for-small-only' %> 
         </div>
       </div>
     </div>
