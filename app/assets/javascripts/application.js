@@ -27,9 +27,26 @@ $(document).ready(function(){
 
 
 
+
+window.isLocalStorageAvailable = function (){
+    var test = 'test';
+    try {
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch(e) {
+        return false;
+    }
+}
+
 window.App = {
   
   initialize: function() {
+
+    if ( window.isLocalStorageAvailable() === false ) {
+      alert("Seu dispositivo/navegador não suporta este site. Utilize um computador com o navegador Chrome/Firefox/Safari para continuar o processo de votação.");
+    }
+
     this.proposals = store.get('proposals');
     this.fillSelectedBoxes();
     this.watchSelected();

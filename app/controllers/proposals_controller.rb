@@ -22,7 +22,7 @@ class ProposalsController < ApplicationController
 
     session[:proposal_ids] = current_proposals
 
-    return render :index if current_proposals.empty?
+    return render :index if current_proposals.blank? 
 
     authenticate_user!
 
