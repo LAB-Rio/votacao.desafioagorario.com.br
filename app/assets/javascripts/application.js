@@ -22,7 +22,7 @@
 
 $(document).ready(function(){
 
-  $(function(){ $(document).foundation(); });
+  //$(function(){ $(document).foundation(); });
 });
 
 
@@ -124,7 +124,7 @@ window.App = {
 
   updateCounter: function(){
     $('span.selected-count').html(this.proposals.length);
-    $('span.left-counter').html(10 - this.proposals.length);
+    $('span.left-counter').html(100 - this.proposals.length);
   },
 
   fillSelectedBoxes: function(){
@@ -160,6 +160,7 @@ window.App = {
 
         el.toggleClass('selected');
 
+        console.log(store.get('proposals'));
 
         if (!el.hasClass('selected')) {
           self.proposals.splice(self.proposals.indexOf(id), 1);
@@ -169,7 +170,7 @@ window.App = {
           store.set('proposals', self.proposals);
         }
 
-        //console.log(store.get('proposals'));
+        console.log(store.get('proposals'));
         
         self.updateCounter();
         self.refreshFormFields();

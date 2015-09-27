@@ -11,9 +11,9 @@
 </div>
 
 <% @proposals.in_groups_of(3, false) do |group| %> 
-  <div class="row proposals" data-equalizer>
+  <div class="row proposals">
     <% group.each do |proposal| %>
-      <div class="medium-4 columns proposal-wrapper end" data-equalizer-watch>
+      <div class="medium-4 columns proposal-wrapper end">
 
         <div class="proposal" data-id="<%= proposal.id %>">
           <div style="float: right; color: #ccc; right: 5%; border: 1px solid #eee; border-radius: 50px; padding: .4em .8em">
