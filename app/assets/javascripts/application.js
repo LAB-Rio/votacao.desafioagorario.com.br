@@ -43,21 +43,21 @@ window.App = {
   
   initialize: function() {
 
-    if ( window.isLocalStorageAvailable() === false ) {
-      alert("Seu dispositivo/navegador não suporta este site. Utilize um computador com o navegador Chrome/Firefox/Safari para continuar o processo de votação.");
-    }
+/*    if ( window.isLocalStorageAvailable() === false ) {*/
+      //alert("Seu dispositivo/navegador não suporta este site. Utilize um computador com o navegador Chrome/Firefox/Safari para continuar o processo de votação.");
+    //}
 
-    this.proposals = store.get('proposals');
-    this.fillSelectedBoxes();
-    this.watchSelected();
-    this.disableButtons();
-    this.addToSelected();
-    this.refreshFormFields();
-    this.watchForm();
-    this.watchFixedMsgActions();
-    this.watchUndoSelection();
-    this.cleanSelection();
-    this.undoAction = false;
+    //this.proposals = store.get('proposals');
+    //this.fillSelectedBoxes();
+    //this.watchSelected();
+    //this.disableButtons();
+    //this.addToSelected();
+    //this.refreshFormFields();
+    //this.watchForm();
+    //this.watchFixedMsgActions();
+    //this.watchUndoSelection();
+    //this.cleanSelection();
+    //this.undoAction = false;
 
   },
 

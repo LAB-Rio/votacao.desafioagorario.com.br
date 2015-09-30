@@ -19,9 +19,11 @@
           <div style="float: right; color: #ccc; right: 5%; border: 1px solid #eee; border-radius: 50px; padding: .4em .8em">
             <%= proposal.users.count %>
           </div>
+          <% if current_user && current_user.proposals.include?(proposal) %>
           <div class="deselect">
-            <a class="select-proposal-undo" data-id="<%= proposal.id %>"><%= image_tag 'undo.png', size: '20x20'%> Desfazer seleção</a>
+            <a class="select-proposal-undo" data-id="<%= proposal.id %>" href="#/"> Você votou nesta ideia</a>
           </div>
+          <% end %>
           <div class="image">
             <h5><%= image_tag "quotes.png" %> <%= link_to proposal.title.camelize, proposal %></h5>
 
@@ -31,7 +33,10 @@
           </div>
           <!--<p class="desc"><%= link_to proposal.description, proposal %></p>-->
           <div class="actions">
-            <%= link_to "Escolher esta proposta", proposal_path(proposal), class: 'select-proposal', data: { id: proposal.id } %>
+            <%= form_for :proposals_users, url: save_path, method: :post do |f| %>
+              <input type="hidden" name="proposals[user_proposals][]" value="<%= proposal.id %>"/> 
+              <%= f.button 'Votar nesta proposta', class: 'select-proposal', type: :submit %>
+            <% end%>
           </div>
         </div>
       </div>
@@ -41,41 +46,13 @@
 <br/><br/><br/>
 <br/><br/><br/>
 
-
-<div class="fixed-save">
-  <div class="row">
-    <div class="medium-4 small-4 end columns">
-      <a href="#" class="button clean-selection hide-for-small-only">Limpar votos</a>
-      <a href="#" class="button clean-selection show-for-small-only">Limpar</a>
-    </div>
-    <div class="medium-4 small-3 columns end counter text-center">
-      <span class="selected-count">0</span>  de <span> 100</span>
-    </div>
-    <div class="medium-4 small-5 columns end text-right">
-      <%= form_for :proposals_users, html: { id: 'proposalForm' }, url: save_path, method: :post do |f| %>
-        <span class="inputs"></span> 
-        <%= f.button 'Finalizar e salvar votos', class: [:button, :submit, 'hide-for-small-only'] %>
-        <%= f.button 'Finalizar', class: [:button, :submit, 'show-for-small-only'] %>
-      <% end %>
+<% if current_user %>
+  <div class="fixed-save">
+    <div class="row">
+      <div class="medium-12 small-12 columns end counter text-center">
+        <span class="selected-count"><%= current_user.first_name %>, você já votou em <%= current_user.proposals.count %> propostas. </span> Você ainda pode votar em <span> <%= 100 - current_user.proposals.count %>.</span>
+        &nbsp; &nbsp; <span><%= link_to "Sair", destroy_user_session_path, method: :delete %></span>
+      </div>
     </div>
   </div>
-</div>
-
-
-
-<div class="fixed-msg hide">
-  <div class="row">
-    <div class="medium-6 fixed-block text-center medium-centered columns">
-      <h3 class="francois">Você votou em apenas <span class="selected-count">0</span> propostas.</h3> 
-      <br/>
-      <h5 class="francois">Deseja concluir mesmo assim? </h5>
-      <p>
-        <br/>
-        <a href="#" class="close button">Voltar</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="#" class="save button">Continuar</a>
-      </p>
-    </div>
-  </div>
-</div>
-
-
+<% end %>

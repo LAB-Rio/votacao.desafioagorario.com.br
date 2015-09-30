@@ -12,13 +12,7 @@ class ProposalsController < ApplicationController
 
 
   def save 
-    
-    if params[:existing]
-      current_user.proposals = []
-      current_proposals = session[:proposal_ids]
-    else
-      current_proposals = proposals_params[:user_proposals] 
-    end
+    current_proposals = proposals_params[:user_proposals] 
 
     session[:proposal_ids] = current_proposals
 
@@ -26,22 +20,16 @@ class ProposalsController < ApplicationController
 
     authenticate_user!
 
-
-    @proposals = current_user.proposals
     @new_proposals = find_proposals(current_proposals)
 
-
-
-    if @proposals.any?
-      return render :already_saved 
-    end
-
-
     @new_proposals.each_with_index do |proposal, index|
-      current_user.proposals << proposal
+      unless current_user.proposals.include?(proposal) && current_user.proposals.count < 101
+        current_user.proposals << proposal 
+      end
     end
    
     render :success
+    session[:proposal_ids] = nil
   end
 
   def already_saved; end
