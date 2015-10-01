@@ -17,22 +17,9 @@
   <h3 class="francois text-uppercase"><%= @proposal.title %></h3>
 </div>
 
-<div class="row">
 
-  </div>
   <div class="medium-7 medium-centered proposal-text columns">
-    <%= simple_format @proposal.large_description.html_safe, {}, sanitize: false %>
-    <div class="row">
-        <div class="medium-6 medium-centered text-center columns">
-          <%= form_for :proposals_users, url: save_path, method: :post do |f| %>
-              <input type="hidden" name="proposals[user_proposals][]" value="<%= @proposal.id %>"/> 
-              <%= f.button 'Votar nesta proposta', class: 'select-proposal', type: :submit %>
-            <% end%>
-          <br/><br/>
-        </div>
 
-        
-    </div>
     <div class="row nav-actions">
 
       <div class="medium-4 small-4 text-center columns">
@@ -67,33 +54,3 @@
 
 
 
-<% if current_user %>
-  <div class="fixed-save">
-    <div class="row">
-      <div class="medium-3 small-3 end columns">
-        &nbsp;
-      </div>
-      <div class="medium-6 small-6 columns end counter text-center">
-          <span class="selected-count">Você já votou em <%= current_user.proposals.count %> propostas. </span> Você ainda pode votar em <span> <%= 100 - current_user.proposals.count %>.</span>
-      </div>
-      <div class="medium-3 small-3 columns end text-right">
-          &nbsp;
-      </div>
-    </div>
-  </div>
-<% end %>
-
-<!--<div class="fixed-msg hide">
-  <div class="row">
-    <div class="medium-6 fixed-block text-center medium-centered columns">
-      <h3 class="francois">Você votou em apenas <span class="selected-count">0</span> propostas.</h3> 
-      <br/>
-      <h5 class="francois">Deseja concluir mesmo assim? </h5>
-      <p>
-        <br/>
-        <a href="#" class="close button">Voltar</a>&nbsp;
-        <a href="#" class="save button">Continuar</a>
-      </p>
-    </div>
-  </div>
-  </div>-->

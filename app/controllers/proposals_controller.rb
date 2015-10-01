@@ -3,7 +3,7 @@ class ProposalsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @proposals = Proposal.includes(:users).order('random()')
+    @proposals = Proposal.includes(:users).order('fullname ASC')
   end
 
   def show

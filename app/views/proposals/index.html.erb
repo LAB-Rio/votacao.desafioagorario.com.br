@@ -1,58 +1,42 @@
 <%= content_for :title, "Propostas em votação" %>
 
 <div class="row" data-equalizer>
-  <div class="medium-8 medium-centered columns">
+  <div class="medium-6 medium-centered columns">
     <br/>
     <br/>
     <p class="text-center" style="font-size: .9em">
-    Abaixo, você conhece alguns dos candidatos e candidatas ao Conselho da Juventude da Cidade e suas propostas. A apresentação destes quadros é aleatória, para dar condições iguais a todos. A cada novo clique, outras propostas aparecem. Você não precisa mandar todos os seus votos de uma vez só, mas você só pode votar uma vez em cada proposta! 
+    Abaixo, você confere a lista de candidatos e candidatas ao Conselho da Juventude da Cidade por <strong>ordem alfabética</strong>. 
     <br/>
   </div>
 </div>
 
-<% @proposals.in_groups_of(3, false) do |group| %> 
-  <div class="row proposals">
-    <% group.each do |proposal| %>
-      <div class="medium-4 columns proposal-wrapper end">
+<div class="row">
+  <div class="medium-12 columns">
+    <table width="100%">
+      <thead>
+        <th>Nome completo</th>
+        <th>Votos válidos</th>
+        <th>Votos recebidos</th>
+        <th>Votos anulados</th>
+      </thead>
 
-        <div class="proposal" data-id="<%= proposal.id %>">
-          <div style="float: right; color: #ccc; right: 5%; border: 1px solid #eee; border-radius: 50px; padding: .4em .8em">
-            <%= proposal.users.count %>
-          </div>
-          <% if current_user && current_user.proposals.include?(proposal) %>
-          <div class="deselect">
-            <a class="select-proposal-undo" data-id="<%= proposal.id %>" href="#/"> Você votou nesta ideia</a>
-          </div>
-          <% end %>
-          <div class="image">
-            <h5><%= image_tag "quotes.png" %> <%= link_to proposal.title.camelize, proposal %></h5>
+      <tbody>
+        <% @proposals.each_with_index do |proposal, index| %>
+          <tr>
+            <td><%= link_to proposal.fullname.camelize, proposal %></td>
+            <td><%= proposal.users.count %></td>
+            <td><%= proposal.users.count %></td>
+            <td><%= proposal.users.count %></td>
+          </tr>
+        <% end %>
 
-            <div class="text-center about-proposal"><%= proposal.fullname.split(' ')[0].camelize %> &nbsp;|&nbsp; <%= proposal.age %> &nbsp;| &nbsp; <%= proposal.ap_zone %> </div>
-            <br/>
-            <br/>
-          </div>
-          <!--<p class="desc"><%= link_to proposal.description, proposal %></p>-->
-          <div class="actions">
-            <%= form_for :proposals_users, url: save_path, method: :post do |f| %>
-              <input type="hidden" name="proposals[user_proposals][]" value="<%= proposal.id %>"/> 
-              <%= f.button 'Votar nesta proposta', class: 'select-proposal', type: :submit %>
-            <% end%>
-          </div>
-        </div>
-      </div>
-    <% end %>
+      </tbody>
+    </table>
   </div>
-<% end %> 
+</div>
+
+
+
 <br/><br/><br/>
 <br/><br/><br/>
 
-<% if current_user %>
-  <div class="fixed-save">
-    <div class="row">
-      <div class="medium-12 small-12 columns end counter text-center">
-        <span class="selected-count"><%= current_user.first_name %>, você já votou em <%= current_user.proposals.count %> propostas. </span> Você ainda pode votar em <span> <%= 100 - current_user.proposals.count %>.</span>
-        &nbsp; &nbsp; <span><%= link_to "Sair", destroy_user_session_path, method: :delete %></span>
-      </div>
-    </div>
-  </div>
-<% end %>
