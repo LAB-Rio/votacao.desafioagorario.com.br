@@ -1,6 +1,9 @@
 class ProposalsController < ApplicationController
   respond_to :html
-  skip_before_action :verify_authenticity_token
+  
+  before_filter do
+    redirect_to root_path unless params[:grillo]
+  end
 
   def index
     @proposals = Proposal.includes(:users).order('fullname ASC')

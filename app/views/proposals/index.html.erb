@@ -14,19 +14,27 @@
   <div class="medium-12 columns">
     <table width="100%">
       <thead>
+        <th> ? </th>
         <th>Nome completo</th>
-        <th>Votos válidos</th>
-        <th>Votos recebidos</th>
-        <th>Votos anulados</th>
+        <th>Perfil</th>
+        <th>Idade</th>
+        <th>AP</th>
+        <th>Recebidos</th>
+        <th>Anulados</th>
+        <th>Válidos</th>
       </thead>
 
       <tbody>
         <% @proposals.each_with_index do |proposal, index| %>
           <tr>
+            <td> <%= ((proposal.users.count - proposal.users.where(checked: false).count) < proposal.users.count/2) ? raw('<span style="color: red">X</span>') : raw('<span style="color: green">V</span>') %> </td>
             <td><%= link_to proposal.fullname.camelize, proposal %></td>
-            <td><%= proposal.users.count %></td>
-            <td><%= proposal.users.count %></td>
-            <td><%= proposal.users.count %></td>
+            <td><%= link_to "Facebook", proposal.facebook %></td>
+            <td><%= proposal.age %></td>
+            <td><%= proposal.zone %></td>
+            <td><span style="color: #999"><%= proposal.users.count %></span></td>
+            <td><span style="color: #999"><%= proposal.users.where(checked: false).count %></span></td>
+            <td><strong><%= (proposal.users.count - proposal.users.where(checked: false).count) %></strong></td>
           </tr>
         <% end %>
 
