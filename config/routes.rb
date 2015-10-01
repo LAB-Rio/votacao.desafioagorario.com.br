@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '*path' => redirect('/') unless Rails.env.development?
+  post '*path' => redirect('/') unless Rails.env.development?
 
   #devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", confirmations: 'users/confirmations', sessions: 'users/sessions' }
   
